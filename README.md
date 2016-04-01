@@ -5,7 +5,7 @@
 
 This is a PhoneGap application created for a school project at Fanshawe College.
 
-This application allows users to upload photographs to a remote server and tag them based on 6 different categories. Users can search through every uploaded picture by selecting one of the six categories or by entering a city name which is provided bythe user's GPS coordinates when they submit an image.
+This application allows users to upload photographs to a remote server and tag them based on 6 different categories. Users can search through every uploaded picture by selecting one of the six categories or by entering a city name which is provided by the user's GPS coordinates when they submit an image.
 
 The phone app itself is built on PhoneGap (Apache Cordova) with HTML5, CSS3 and jQuery.
 
