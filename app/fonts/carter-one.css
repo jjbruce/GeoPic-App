@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Carter One';
+  font-weight: 400;
+  font-style: normal;
+  src: url('Carter-One-regular.eot');
+  src: url('Carter-One-regular.eot?#iefix') format('embedded-opentype'),
+       local('Carter One'),
+       local('Carter-One-regular'),
+       url('Carter-One-regular.woff2') format('woff2'),
+       url('Carter-One-regular.woff') format('woff'),
+       url('Carter-One-regular.ttf') format('truetype'),
+       url('Carter-One-regular.svg') format('svg');
+}
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoPic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--<link href='https://fonts.googleapis.com/css?family=Carter+One' rel='stylesheet' type='text/css'>-->
+    <link href='fonts/carter-one.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery.jsonp-2.4.0.min.js" charset="utf-8"></script>
+    <script src="js/jquery.easing.1.3.js" charset="utf-8"></script>
+    <script src="js/var.js"></script>
+    <script src="js/geopic.js"></script>
+  </head>
+
+  <body>
+    <!-- MAIN PAGE -->
+    <div data-role="page" id="MainPage">
+      <div class="top-toolbar-mini">
+        <span class="toolbar-title" />
+      </div>
+      <div  data-role="main" class="ui-content">
+        <h1>GeoPic</h1>
+        <div class="logoWrap">
+          <img src="img/geopic.svg" id="logo-geopic" />
+        </div>
+        <div id="btnPanel">
+          <button onclick="window.location.href='#describePic';capturePhoto();" id="capture">Capture Photo</button>
+          <button onclick="location.href='#search'" id="search">Search</button>
+        </div>
+      </div>
+    </div>
+
+  <!-- RESULTS PAGE -->
+    <div data-role="page" id="results">
+      <div  data-role="main" class="ui-content">
+          <div class="top-toolbar-mini">
+            <span class="toolbar-title" />
+          </div>
+          <div class="top-toolbar">
+            <a href="#" data-rel="back" data-role="button" data-icon="back" data-mini="true" class="toolbar-back">Back</a>
+            <a href="#MainPage" data-role="button" data-icon="home" data-mini="true" class="toolbar-capture">Home</a>
+            <span class="toolbar-title">Results</span>
+          </div>
+          <div class="masonry-grid">
+            <div class="grid-sizer"></div>
+          </div>
+      </div>
+    </div>
+
+  <!-- SINGLE PHOTO -->
+    <div data-role="page" id="single-result">
+      <div  data-role="main" class="ui-content">
+          <div class="top-toolbar-mini">
+            <span class="toolbar-title" />
+          </div>
+          <div class="top-toolbar">
+            <a href="#MainPage" data-rel="back" data-role="button" data-icon="back" data-mini="true" class="toolbar-back">Back</a>
+            <a href="#MainPage" data-role="button" data-icon="home" data-mini="true" class="toolbar-capture">Home</a>
+            <span class="toolbar-title">Results</span>
+          </div>
+          <div class="photoWrapSingle">
+              <img class="photo-single" src="" />
+          </div>
+          <div class="single-photo-category-wrap">
+            <div data-role="header" class="single-photo-category-header">Geolocation Header</div>
+          </div>
+      </div>
+    </div>
+
+  <!-- SEARCH PAGE -->
+
+    <div data-role="page" id="search">
+      <div  data-role="main" class="ui-content">
+          <div class="top-toolbar-mini">
+            <span class="toolbar-title" />
+          </div>
+          <div class="top-toolbar">
+            <a href="#" data-role="button" data-rel="back"  data-icon="back" data-mini="true" class="toolbar-back">Back</a>
+            <a href="#MainPage" data-role="button" data-icon="home" data-mini="true" class="toolbar-capture">Home</a>
+            <span class="toolbar-title">Swipe to Search</span>
+          </div>
+          <div id="searchPanel">
+            <ul>
+              <li><div id="search-food">Food</div></li>
+              <li><div id="search-sports">Sports</div></li>
+              <li><div id="search-nature">Nature</div></li>
+              <li><div id="search-travel">Travel</div></li>
+              <li><div id="search-funny">Humour</div></li>
+              <li><div id="search-pets">Pets</div></li>
+            </ul>
+          </div>
+          <div class="footer-search">
+            <div class="searchGeoWrap">
+              <input type="search" id="searchGeo" value="" style="height: 4.25vh" placeholder="Search By Geolocation"/>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  <!--Describe Pic - part with tags/geolocation -->
+    <div data-role="page" id="describePic">
+      <div  data-role="main" class="ui-content">
+          <div class="top-toolbar-mini">
+            <span class="toolbar-title" />
+          </div>
+          <div class="top-toolbar">
+            <a href="#MainPage" data-role="button" data-rel="back" data-icon="back" data-mini="true" class="toolbar-back">Back</a>
+            <a href="#MainPage" data-role="button" data-icon="home" data-mini="true" class="toolbar-capture">Home</a>
+            <span class="toolbar-title">Upload a Photo</span>
+        <div class="photoWrap">
+          <div class="photoWrapCell">
+            <img class="photo" src="" />
+          </div>
+        </div>
+        <div class="describePicWrap">
+          <fieldset data-role="controlgroup" class="ui-grid-b" style="width: 100%" id="describePicFieldSet">
+            <div data-role="header">Select Categories:</div>
+            <div class="ui-block-a" style="width: 33vw">
+              <input type="checkbox" name="choice" id="food" value="1" checked="checked" />
+              <label for="food">Food</label>
+            </div>
+            <div class="ui-block-b" style="width: 33vw">
+              <input type="checkbox" name="choice" id="sport" value="2"  />
+              <label for="sport">Sport</label>
+            </div>
+            <div class="ui-block-c" style="width: 34vw">
+              <input type="checkbox" name="choice" id="nature" value="3"  />
+              <label for="nature">Nature</label>
+            </div>
+            <div class="ui-block-a" style="width: 33vw">
+              <input type="checkbox" name="choice" id="travel" value="4"  />
+              <label for="travel">Travel</label>
+            </div>
+            <div class="ui-block-b" style="width: 33vw">
+              <input type="checkbox" name="choice" id="funny" value="5"  />
+              <label for="funny">Humour</label>
+            </div>
+            <div class="ui-block-c" style="width: 34vw">
+              <input type="checkbox" name="choice" id="pets" value="6"  />
+              <label for="pets">Pets</label>
+            </div>
+            <div data-role="footer" id="location">Your Geolocation</div>
+          </fieldset>
+          <button onclick="checkAndSave();" id="search">Upload</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
